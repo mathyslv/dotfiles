@@ -1,0 +1,16 @@
+theme = "tokyonight"
+
+[editor]
+bufferline = "always"
+auto-format = true
+mouse = false
+line-number = "relative"
+
+[editor.statusline]
+left = ["mode", "spinner", "file-modification-indicator", "read-only-indicator"]
+center = ["file-name"]
+right = ["diagnostics", "register", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+
+[editor.file-picker]
+hidden = false
