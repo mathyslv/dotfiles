@@ -55,7 +55,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec tilix
+bindsym $mod+Return exec wezterm
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -126,7 +126,7 @@ bindsym $mod+q focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:web"
-set $ws2 "2:tilix"
+set $ws2 "2:term"
 set $ws3 "3:code"
 set $ws4 "4"
 set $ws5 "5"

@@ -100,24 +100,46 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export EDITOR="hx"
+
 export PATH="$PATH:~/.cargo/bin:~/.local/bin:~/.config/rofi/scripts:/usr/local/go/bin"
 . "$HOME/.cargo/env"
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+#eval "$(zellij setup --generate-completion zsh)"
 
-alias editrc="vim ~/.zshrc"
+alias editrc="${EDITOR} ~/.zshrc"
 alias sourcerc="source ~/.zshrc"
 
-alias editi3="vim ~/.config/i3/config"
+alias editi3="${EDITOR} ~/.config/i3/config"
 alias i3reload="i3-msg reload && i3-msg restart"
 
 export BAT_PAGER=none
 
 export VAGRANT_DEFAULT_PROVIDER=libvirt
 
-alias vimrc="vim ~/.vimrc"
+alias vimrc="${EDITOR} ~/.vimrc"
 
 alias clone="git clone"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+alias ls='eza'
+
+export FPATH="~/dev/sources/completions/zsh:$FPATH"
+
+#eval "$(zellij setup --generate-auto-start zsh)"
+
+function wez_rename {
+  echo "\x1b]1337;SetUserVar=panetitle=$(echo -n $1 | base64)\x07"
+}

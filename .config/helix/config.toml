@@ -17,6 +17,10 @@ auto-pairs = false
 line-number = "relative"
 # Force the theme to show colors
 true-color = true
+# The min-length of word under cursor to trigger autocompletion
+completion-trigger-len = 1
+# Time in milliseconds after typing a word character before completions are shown, set to 5 for instant.
+completion-timeout = 100
 
 [editor.statusline]
 left = ["mode", "spinner", "version-control", "file-modification-indicator", "read-only-indicator"]
