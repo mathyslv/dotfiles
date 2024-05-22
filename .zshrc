@@ -70,7 +70,8 @@ ZSH_THEME=""
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions fzf)
+plugins=(git zsh-autosuggestions fzf zsh-completions fzf-tab)
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source $ZSH/oh-my-zsh.sh
 
@@ -143,3 +144,12 @@ export FPATH="~/dev/sources/completions/zsh:$FPATH"
 function wez_rename {
   echo "\x1b]1337;SetUserVar=panetitle=$(echo -n $1 | base64)\x07"
 }
+
+autoload -U compinit && compinit
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
+export LD_LIBRARY_PATH=/opt/openssl/lib:${LD_LIBRARY_PATH}

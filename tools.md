@@ -19,10 +19,13 @@
 - https://github.com/sharkdp/hexyl
 - https://github.com/extrawurst/gitui
 - https://github.com/yshui/picom
-- xautolock
 - https://github.com/Raymo111/i3lock-color
 - https://github.com/betterlockscreen/betterlockscreen
 - https://github.com/davatorium/rofi
 - https://github.com/polybar/polybar
 - https://github.com/wez/wezterm
 - https://github.com/zellij-org/zellij
+- https://github.com/dreamer/scrot
+
+- xautolock
+- convert
